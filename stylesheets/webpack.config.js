@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   entry:{
@@ -7,9 +8,13 @@ module.exports = {
     "dark-kissu": './src/dark-kissu.scss',
     "kissu": './src/kissu.scss',
   },
+mode: "production",
 plugins: [
-  new FixStyleOnlyEntriesPlugin(),
+
   new MiniCssExtractPlugin({filename: '../../pub/stylesheets/[name].css'}),
+  new CompressionPlugin({include:/..\/..\/pub\/stylesheets\/.*/, filename: '[path].gz[query]',  threshold: 0}),
+  new FixStyleOnlyEntriesPlugin(),
+
 ],
   module: {
     rules: [
