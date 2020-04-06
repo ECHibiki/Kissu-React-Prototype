@@ -14,7 +14,7 @@ export class Templater{
   }
 
   renderView(route:string){
-    return "<p>asdf</p>";
+    return `<p>asdf ${route}</p>`;
   }
 
   static getInstance(){

@@ -3,12 +3,21 @@
 // from the model
 
 export class RouteObject{
-  constructor(pattern:string, template:string){
-
+  pattern:string;
+  template:(board:string, title_detail:string, react_body:string)=>string;
+  constructor(pattern:string,
+    template:(board:string, title_detail:string, react_body:string)=>string){
+      this.pattern = pattern;
+      this.template = template;
   }
 
-  getPattern(){return ""}
+  getPattern(){
+    return this.pattern;
+  }
 
-  getTemplateCode(){}
+  getTemplateFunction():(brd:string, title:string, body:string)
+    =>string{
+      return this.template;
+    }
 
 }

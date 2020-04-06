@@ -1,6 +1,6 @@
 // contains the port information, server information and route information.
 
-import * as ServerSettings from "./service/server-settings";
+import * as ServerSettings from "./settings/server-settings";
 import {RouteObject} from "./service/route-object";
 
 interface routeObjectInterface{

@@ -19,16 +19,15 @@ export class Controller{
         Route.getInstance().getStartupFunction(this.view_reference, PORT));
   }
 
+  // retrieve from set of routes(obtained in models) an appropriate template
+  // and pattern
   private setRoutes(app:any){
     const route_list = Route.getInstance().getRoutes(this.model_reference);
-    // retrieve from set of routes(obtained in models) an appropriate template
-    // and pattern
     for (const route of route_list){
-      console.log(Route.getInstance().getRoutePattern(route, this.model_reference));
         app.get(
           Route.getInstance().getRoutePattern(route, this.model_reference),
           Route.getInstance().getRouteFunction(route, this.view_reference)
-        )
+        );
     }
   }
 }
