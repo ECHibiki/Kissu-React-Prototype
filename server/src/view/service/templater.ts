@@ -1,15 +1,16 @@
+// Provides the logic for all template generation and startup messages
+
 import * as StartupInfo from "../../model/service/startup-info";
 
 import {View} from "../../view/view";
 
-import * as String from "../../util/string";
 
 export class Templater{
   static instance:Templater;
   constructor(){}
 
   getStartUpText(port:number){
-    return String.printf(StartupInfo.startup_message,""+port, new Date().toString());
+    return StartupInfo.startup_message(port, new Date().toString());
   }
 
   renderView(route:string){

@@ -1,3 +1,5 @@
+//provied the logic for all route methods and startup functions
+
 import express, { Request, Response } from "express";
 import {RoutesBridge} from './bridges/routes-bridge';
 import {TemplateBridge} from './bridges/template-bridge';

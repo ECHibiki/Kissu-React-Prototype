@@ -1,4 +1,4 @@
 
-var startup_message = `Server started on port %s\n%s`;
+var startup_message = (port:number, date:string) => `Server started on port ${ port }\n${ date }`;
 
 export {startup_message};
