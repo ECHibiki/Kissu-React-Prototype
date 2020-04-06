@@ -1,6 +1,6 @@
 // Provides the logic for all template generation and startup messages
 
-import * as StartupInfo from "../../model/service/startup-info";
+import * as StartupInfo from "../../model/templates/startup-info";
 
 import {View} from "../../view/view";
 

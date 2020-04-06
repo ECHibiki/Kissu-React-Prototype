@@ -2,8 +2,10 @@
 /inc/instance-config.php
 
 #node
-/node_modules/*
+*/node_modules/*
 node_modules/*
+
+
 #boards
 /b/*
 /p/*

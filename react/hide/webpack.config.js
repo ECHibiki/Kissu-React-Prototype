@@ -11,7 +11,7 @@ module.exports = {
         extensions: [".ts", ".tsx"]
     },
     output: {
-        filename: 'ui-bundle.js',	  
+        filename: 'ui-bundle.js',
         path: __dirname + '/../pub/js-ui',
 	libraryTarget: 'umd',
     	library: 'JS_UI'
@@ -56,4 +56,3 @@ module.exports = {
 	"react-router": "ReactRouter"
     }
 };
-
