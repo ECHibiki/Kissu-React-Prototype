@@ -2,7 +2,7 @@ const Versions = require(__dirname + "/versions.js");
 
 const path = require('path');
 const {
-  NODE_ENV = 'development',
+  NODE_ENV = 'production',
   UI_VERS = Versions.ui_version_num,
   STYLE_VERS = Versions.stylesheet_version_num
 } = process.env;

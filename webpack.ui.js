@@ -3,7 +3,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin')
 
 const path = require('path');const {
-  NODE_ENV = 'development',
+  NODE_ENV = 'production',
 } = process.env;
 
 module.exports = {
@@ -22,11 +22,9 @@ module.exports = {
     output: {
         filename: `ui-bundle(${Versions.ui_version_num}).js`,
         path: __dirname + '/pub/js-ui',
-	libraryTarget: 'umd',
-    	library: 'JS_UI'
     },
     optimization: {
-     minimize: false,
+     minimize: true,
     minimizer: [
     	new TerserPlugin({
 	        terserOptions: {

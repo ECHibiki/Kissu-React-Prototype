@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
 const path = require('path');const {
-  NODE_ENV = 'development',
+  NODE_ENV = 'production',
 } = process.env;
 
 module.exports = {
