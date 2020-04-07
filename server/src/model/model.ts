@@ -1,5 +1,5 @@
 // contains the port information, server information and route information.
-
+import * as StartupInfo from "./templates/startup-info";
 import * as ServerSettings from "./settings/server-settings";
 import {RouteObject} from "./service/route-object";
 
@@ -29,6 +29,10 @@ export class Model{
   getRouteObject(route:string):RouteObject{
       return this.route_objects[route];
   };
+
+  getStartUpMessage():(port:number, date:string)=>string{
+    return StartupInfo.startup_message;
+  }
 
   getRouteList():string[]{
     var list:string[] = [];

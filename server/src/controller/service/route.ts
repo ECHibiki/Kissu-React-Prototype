@@ -6,38 +6,49 @@ import {TemplateBridge} from './bridges/template-bridge';
 import {Model} from "../../model/model";
 import {View} from "../../view/view";
 
+//dependency injection > mixin
 export class Route{
-  static instance:Route;
-  constructor(){}
+  model_reference:Model;
+  view_reference:View;
 
-  getPort(model:Model):number{ return RoutesBridge.getMainPort(model) }
-
-  getRoutes(model:Model):string[]{ return RoutesBridge.getRoutes(model)}
-
-  getRoutePattern(route:string, model:Model):string{
-    return RoutesBridge.getRoutePattern(route,model);
+  routes_bridge:RoutesBridge;
+  template_bridge:TemplateBridge;
+  constructor(model:Model, view:View){
+    this.routes_bridge = new RoutesBridge(model);
+    this.template_bridge = new TemplateBridge(view);
+    this.model_reference = model;
+    this.view_reference = view;
   }
 
-  getRouteFunction(route:string, view:View)
+  getPort():number{
+    //RoutesBridge
+    return this.routes_bridge.getMainPort()
+  }
+
+  getRoutes():string[]{
+    //RoutesBridge
+    return this.routes_bridge.getRoutes()
+  }
+
+  getRoutePattern(route:string):string{
+    //RoutesBridge
+    return this.routes_bridge.getRoutePattern(route);
+  }
+
+  getRouteFunction(route:string)
       :(req:Request, res:Response)=>void
   {
-    return function(req:Request, res:Response){
-        res.send(TemplateBridge.getRouteRendered(route, view));
+    return (req:Request, res:Response)=>{
+      //TemplateBridge
+        res.send(this.template_bridge.getRouteRendered(route));
     }
   }
 
-  getStartupFunction(view:View, port:number):()=>void
+  getStartupFunction(port:number):()=>void
   {
-    return function(){
-      console.log(TemplateBridge.getStartupMessage(port, view));
+    return ()=>{
+        //TemplateBridge
+      console.log(this.template_bridge.getStartupMessage(port));
     }
   }
-
-  static getInstance():Route{
-      if(this.instance == undefined){
-        this.instance = new Route();
-      }
-      return this.instance;
-  }
-
 }

@@ -1,10 +1,14 @@
 import {View} from "../../../view/view";
 
 export class TemplateBridge{
-    static getStartupMessage(port:number, view:View):string{
-        return view.getStartupMessage(port);
+    view:View;
+    constructor(view:View){
+      this.view = view;
     }
-    static getRouteRendered(route:string, view:View):string{
-        return view.getRouteRendered(route);
+    getStartupMessage(port:number):string{
+        return this.view.getStartupMessage(port);
+    }
+    getRouteRendered(route:string):string{
+        return this.view.getRouteRendered(route);
     }
 }

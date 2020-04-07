@@ -1,13 +1,17 @@
 import {Model} from "../../../model/model";
 
 export class RoutesBridge{
-    static getMainPort(model:Model):number{
-        return model.getPort();
+    model:Model;
+    constructor(model:Model){
+      this.model = model;
     }
-    static getRoutePattern(route:string, model:Model){
-       return model.getRouteObject(route).getPattern();
+    getMainPort():number{
+        return this.model.getPort();
     }
-    static getRoutes(model:Model):string[]{
-      return model.getRouteList();
+    getRoutePattern(route:string){
+       return this.model.getRouteObject(route).getPattern();
+    }
+    getRoutes():string[]{
+      return this.model.getRouteList();
     }
 }

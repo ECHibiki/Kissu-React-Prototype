@@ -8,25 +8,26 @@ export class Controller{
 
   model_reference:Model;
   view_reference:View;
-
+  route:Route;
   constructor(app:any, model:Model, view:View){
       this.model_reference = model;
       this.view_reference = view;
+      this.route = new Route(model, view);
 
       this.setRoutes(app);
-      const PORT = Route.getInstance().getPort(this.model_reference);
+      const PORT = this.route.getPort();
       let server=app.listen(PORT,
-        Route.getInstance().getStartupFunction(this.view_reference, PORT));
+        this.route.getStartupFunction(PORT));
   }
 
   // retrieve from set of routes(obtained in models) an appropriate template
   // and pattern
   private setRoutes(app:any){
-    const route_list = Route.getInstance().getRoutes(this.model_reference);
+    const route_list = this.route.getRoutes();
     for (const route of route_list){
         app.get(
-          Route.getInstance().getRoutePattern(route, this.model_reference),
-          Route.getInstance().getRouteFunction(route, this.view_reference)
+          this.route.getRoutePattern(route),
+          this.route.getRouteFunction(route)
         );
     }
   }
