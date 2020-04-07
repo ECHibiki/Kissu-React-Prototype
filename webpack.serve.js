@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 process.env = {
-  NODE_ENV: 'production',
+  NODE_ENV: 'development',
   UI_VERS: Versions.ui_version_num,
   STYLE_VERS: Versions.stylesheet_version_num,
   SERVER_VERS: Versions.server_version_num,

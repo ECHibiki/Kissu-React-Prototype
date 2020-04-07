@@ -2,6 +2,7 @@
 import * as StartupInfo from "./templates/startup-info";
 import * as ServerSettings from "./settings/server-settings";
 import {RouteObject} from "./service/route-object";
+import { Request, Response } from "express";
 
 interface routeObjectInterface{
   [route_name:string] : RouteObject
@@ -30,7 +31,7 @@ export class Model{
       return this.route_objects[route];
   };
 
-  getStartUpMessage():(port:number, date:string)=>string{
+  getStartUpMessage():(port:number, date:string)=>string {
     return StartupInfo.startup_message;
   }
 
@@ -42,5 +43,14 @@ export class Model{
       }
     }
     return list;
+  }
+
+  getJSONProperties(
+    send_request:(properties:any,
+      template_fn:(...args:string[])=>string,
+        route:string, board:string) => ((req:Request, res:Response)=>void),
+    template_fn:(...args:string[])=>string,
+    route:string, board:string):(req:Request, res:Response) => void{
+
   }
 }

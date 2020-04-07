@@ -1,5 +1,6 @@
 import { Templater } from './service/templater';
 import {Model} from "../model/model";
+import { Request, Response } from "express";
 
 export class View{
   model_reference:Model;
@@ -13,7 +14,8 @@ export class View{
     return this.templater.getStartUpText(port);
   }
 
-  getRouteRendered(route:string):string{
-    return this.templater.renderView(route);
+  getRouteRendered(template_fn:(...args:string[])=>string, route:string, board:string):
+    (req:Request, res:Response)=>void{
+     return this.templater.renderView(template_fn, route, board);
   }
 }

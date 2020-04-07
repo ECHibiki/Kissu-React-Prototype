@@ -1,8 +1,8 @@
 //provied the logic for all route methods and startup functions
 
-import express, { Request, Response } from "express";
+import { Request, Response } from "express";
 import {RoutesBridge} from './bridges/routes-bridge';
-import {TemplateBridge} from './bridges/template-bridge';
+import {TemplaterBridge} from './bridges/templater-bridge';
 import {Model} from "../../model/model";
 import {View} from "../../view/view";
 
@@ -12,10 +12,10 @@ export class Route{
   view_reference:View;
 
   routes_bridge:RoutesBridge;
-  template_bridge:TemplateBridge;
+  templater_bridge:TemplaterBridge;
   constructor(model:Model, view:View){
     this.routes_bridge = new RoutesBridge(model);
-    this.template_bridge = new TemplateBridge(view);
+    this.templater_bridge = new TemplaterBridge(view);
     this.model_reference = model;
     this.view_reference = view;
   }
@@ -38,17 +38,15 @@ export class Route{
   getRouteFunction(route:string)
       :(req:Request, res:Response)=>void
   {
-    return (req:Request, res:Response)=>{
-      //TemplateBridge
-        res.send(this.template_bridge.getRouteRendered(route));
-    }
+    var template_function:(...args:string[])=>string = this.routes_bridge.getRouteTemplateFunction(route);
+    return (req:Request, res:Response) => this.templater_bridge.getRouteRendered(template_function, route, req.params("board"));
   }
 
   getStartupFunction(port:number):()=>void
   {
     return ()=>{
         //TemplateBridge
-      console.log(this.template_bridge.getStartupMessage(port));
+      console.log(this.templater_bridge.getStartupMessage(port));
     }
   }
 }
