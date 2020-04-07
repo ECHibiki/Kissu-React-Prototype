@@ -14,8 +14,7 @@ export class View{
     return this.templater.getStartUpText(port);
   }
 
-  getRouteRendered(template_fn:(...args:string[])=>string, route:string, board:string):
-    (req:Request, res:Response)=>void{
-     return this.templater.renderView(template_fn, route, board);
+  getRouteRendered(template_fn:(...args:string[])=>string, route:string, board:string, req:Request, res:Response){
+     this.templater.renderView(template_fn, route, board, req, res);
   }
 }

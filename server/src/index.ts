@@ -4,6 +4,9 @@ import { Model } from './model/model';
 import { Controller } from './controller/controller';
 import { View } from './view/view';
 
+//TODO: switches to let var and const
+//TODO: import cleanup
+
 let app = express();
 let model = new Model();
 let view = new View(model);

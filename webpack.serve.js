@@ -10,7 +10,9 @@ process.env = {
   STYLE_VERS: Versions.stylesheet_version_num,
   SERVER_VERS: Versions.server_version_num,
   PORT: Server.port,
-  JSON_ROUTE: Server.json_route
+  JSON_ROUTE: Server.json_route,
+  REACT_ROUTE: Server.react_route,
+  REACT_FILENAME: Server.react_name,
 };
 
 
