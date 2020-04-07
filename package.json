@@ -1,0 +1,55 @@
+{
+  "name": "kissu-react",
+  "version": "1.0.0",
+  "description": "This project contains the front end SSR server and client React. Project done in TypeScript with ReactJS served through a NodeJS server.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-serv":"npx webpack --config webpack.serve.js",
+    "build-ui":"npx webpack --config webpack.ui.js",
+    "build-style":"npx webpack --config webpack.style.js",
+    "build":"npx webpack --config webpack.serve.js && npx webpack --config webpack.ui.js &&  npx webpack --config webpack.style.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ECHibiki/Kissu-React.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ECHibiki/Kissu-React/issues"
+  },
+  "homepage": "https://github.com/ECHibiki/Kissu-React#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.4",
+    "@types/jquery": "^3.3.34",
+    "@types/js-cookie": "^2.2.5",
+    "@types/node": "^13.9.2",
+    "@types/react": "^16.9.25",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-router": "^5.1.4",
+    "compression-webpack-plugin": "^3.1.0",
+    "css-loader": "^3.4.2",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "js-cookie": "^2.2.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "nodejs": "0.0.0",
+    "react-draggable": "^4.2.0",
+    "sass-loader": "^8.0.2",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.1.3",
+    "terser-webpack-plugin": "^2.3.5",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-fix-style-only-entries": "^0.4.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.1.2"
+  }
+}

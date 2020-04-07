@@ -6,6 +6,7 @@ import { View } from './view/view';
 
 //TODO: switches to let var and const
 //TODO: import cleanup
+//TODO: variable signatures kind of strange
 
 let app = express();
 let model = new Model();

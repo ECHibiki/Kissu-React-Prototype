@@ -1,0 +1,13 @@
+{
+
+    "compilerOptions": {
+"esModuleInterop": true ,
+"allowSyntheticDefaultImports": true,
+        "outDir": "./js-ui/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es6",
+        "jsx": "react"
+    }
+}
