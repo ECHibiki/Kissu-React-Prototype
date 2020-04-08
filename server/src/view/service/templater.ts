@@ -41,7 +41,7 @@ export class Templater {
       }
       catch(error){
         res
-          .status(500)
+          .status(501)
           .send("error");
       }
   }

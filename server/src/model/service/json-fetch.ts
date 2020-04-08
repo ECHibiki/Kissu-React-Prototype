@@ -32,7 +32,6 @@ export class JSONFetcher{
 //process.env.JSON_ROUTE
     if(route == "page"){
       if(react_json.hasOwnProperty("react_contents")){
-        console.log(process.env.JSON_ROUTE + `/${board}/properties.json`)
         fs.readFile(process.env.JSON_ROUTE + `/${board}/properties.json`, (err:any, data:any) =>{
           try{
             react_json['properties'] = JSON.parse(data);
@@ -46,8 +45,7 @@ export class JSONFetcher{
         });
       }
       else{
-        console.log(req.params)
-        let page:number = req.params["page"] == undefined ? 0 : parseInt(req.params["page"]) - 1;
+        let page:number = req.params["page"] == 'index' ? 0 : parseInt(req.params["page"]) - 1;
         fs.readFile(process.env.JSON_ROUTE + `/${board}/${page}.json`, (err:any, data:any) =>{
           try{
             react_json['react_contents'] = JSON.parse(data);

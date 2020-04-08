@@ -43,8 +43,6 @@ export class Page extends React.Component<PageProperties, PageVariables>{
 
 	setPageThreads(){
 
-    console.log(this.props.threads);
-
 			var paged_json = this.props.threads;
 			if(paged_json.length >= this.props.page-1){
 				var threads_arr:JSX.Element[] = [];
@@ -86,7 +84,6 @@ export class Page extends React.Component<PageProperties, PageVariables>{
 		  temp_s_threads = [...temp_s_threads, <hr key={thread_ind * 3 - 2} />];
 		}
 	  this.state = {spaced_threads:temp_s_threads, error:null};
-    console.log("--");
 	}
 
 	render(){

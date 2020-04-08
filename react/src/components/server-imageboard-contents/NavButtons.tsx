@@ -44,7 +44,7 @@ export class NavButtons extends React.Component<NavButtonProperties, NavButtonVa
 					}
 				});
 				let time_string = "";
-console.log(((Date.now()/1000 - max_time) / (60*60*24)));console.log(((Date.now()/1000 - max_time)));
+
 				if(((Date.now()/1000 - max_time) / (60*60*24*30*12)) > 1 ){
 					time_string = Math.floor((Date.now()/1000 - max_time / (60*60*24*30*12))) + " year";
 				}
@@ -66,7 +66,7 @@ console.log(((Date.now()/1000 - max_time) / (60*60*24)));console.log(((Date.now(
 				if(time_string.substring(0, time_string.indexOf(" ")).length > 1 || parseInt(time_string[0]) > 1){
 					time_string += "s"
 				}
-				console.log(time_string);
+
 				this.props.confirmUpdateClick(time_string, max_time);
 			})
 			.catch((err)=>{
@@ -76,7 +76,7 @@ console.log(((Date.now()/1000 - max_time) / (60*60*24)));console.log(((Date.now(
 	}
 
 	fetchThreadTimeJSON(board:string){
-console.log('f');
+
 		return new Promise((resolve, reject) => {
 			var xhr_thread_details = new XMLHttpRequest();
 			xhr_thread_details.addEventListener("load", function(re:any){

@@ -36,7 +36,7 @@ export class ThreadUpdater extends React.Component<ThreadUpdaterProperties, Thre
 
 	countDown(){
 		if(this.state.timer_seconds == 0){
-console.log(this.timer_increment * this.timer_repetitions);
+
 			this.timer_repetitions += 1;
 			this.setState({timer_seconds : this.timer_increment * this.timer_repetitions});
 			this.fireUpUpdater();
