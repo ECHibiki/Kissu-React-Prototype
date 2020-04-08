@@ -13,13 +13,14 @@ export class JSRenderer{
   }
 
 // TODO: apply type to these
-  getReactElement(){
+  getReactElement(react_json:any){
     let react_obj = this.react_aquisition_bridge.getReactElement();
-    return React.createElement(react_obj);
+    react_json.standard_input = {thread_id:0, board:"b", paged:true, page:1};
+    return React.createElement(react_obj,react_json);
   }
 
-  renderReact():string{
-        let react_element = this.getReactElement();
+  renderReact(react_json:any):string{
+        let react_element:any = this.getReactElement(react_json);
         let string_react = ReactDOMServer.renderToString(react_element);
         return string_react;
   }

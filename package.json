@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-serv":"npx webpack --config webpack.serve.js",
-    "build-ui":"npx webpack --config webpack.ui.js",
-    "build-style":"npx webpack --config webpack.style.js",
-    "build":"npx webpack --config webpack.serve.js && npx webpack --config webpack.ui.js &&  npx webpack --config webpack.style.js"
+    "build-serv": "npx webpack --config webpack.serve.js",
+    "build-ui": "npx webpack --config webpack.ui.js",
+    "build-style": "npx webpack --config webpack.style.js",
+    "build": "npx webpack --config webpack.serve.js && npx webpack --config webpack.ui.js &&  npx webpack --config webpack.style.js"
   },
   "repository": {
     "type": "git",
@@ -45,7 +45,9 @@
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
-    "webpack-fix-style-only-entries": "^0.4.0"
+    "webpack-fix-style-only-entries": "^0.4.0",
+    "xmlhttprequest": "^1.8.0",
+    "xmlhttprequest-ts": "^1.0.1"
   },
   "dependencies": {
     "react": "^16.13.1",

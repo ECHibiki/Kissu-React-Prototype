@@ -39,7 +39,16 @@ export class Route{
       :(req:Request, res:Response)=>void
   {
     var template_function:(...args:string[])=>string = this.routes_bridge.getRouteTemplateFunction(route);
-    return (req:Request, res:Response) => this.templater_bridge.getRouteRendered(template_function, route, req.params.board, req, res);
+    return (req:Request, res:Response) => {
+      try{
+        this.templater_bridge.getRouteRendered(template_function, route, req.params.board, req, res);
+      }
+      catch(error){
+        res
+          .status(500)
+          .send("error");
+      }
+    }
   }
 
   getStartupFunction(port:number):()=>void

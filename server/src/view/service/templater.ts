@@ -15,6 +15,8 @@ export class Templater {
     this.settings_bridge = new SettingsBridge(model);
     this.json_bridge = new JSONBridge(model);
     this.js_renderer = new JSRenderer(model);
+
+    this.buildSendRequest = this.buildSendRequest.bind(this);
   }
 
   getStartUpText(port:number):string{
@@ -26,15 +28,22 @@ export class Templater {
     //(req:Request, res:Response) => res.send(template_fn(, "b", "c"));
   }
 
-  buildSendRequest(properties:any, template_fn:(...args:string[])=>string, route:string, board:string, req:Request, res:Response) {
-      var board_title:string = properties["title"];
-      var react_body:string = this.js_renderer.renderReact();
-      res.send(
-        template_fn(
-          board_title,
-          board,
-          react_body
-        ));
+  buildSendRequest(react_json:any, template_fn:(...args:string[])=>string, route:string, board:string, req:Request, res:Response) {
+    try{
+        let board_title:string = react_json["properties"]["title"];
+        let react_body:string = this.js_renderer.renderReact(react_json['react_contents']);
+        res.send(
+          template_fn(
+            board,
+            board_title,
+            react_body
+          ));
+      }
+      catch(error){
+        res
+          .status(500)
+          .send("error");
+      }
   }
 
 }

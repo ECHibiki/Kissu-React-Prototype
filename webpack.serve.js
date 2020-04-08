@@ -7,12 +7,13 @@ const path = require('path');
 process.env = {
   NODE_ENV: 'development',
   UI_VERS: Versions.ui_version_num,
+  UI_NAME: Server.react_name,
   STYLE_VERS: Versions.stylesheet_version_num,
   SERVER_VERS: Versions.server_version_num,
   PORT: Server.port,
   JSON_ROUTE: Server.json_route,
   REACT_ROUTE: Server.react_route,
-  REACT_FILENAME: Server.react_name,
+  ROOT_DIR: __dirname
 };
 
 
@@ -33,8 +34,9 @@ module.exports = {
     plugins:[
       new webpack.EnvironmentPlugin([
         'NODE_ENV',
-        'UI_VERS', 'STYLE_VERS', 'SERVER_VERS',
-        'PORT', 'JSON_ROUTE'
+        'UI_VERS', 'UI_NAME',
+        'STYLE_VERS', 'SERVER_VERS',
+        'PORT', 'JSON_ROUTE', 'ROOT_DIR'
       ])
     ],
     module: {

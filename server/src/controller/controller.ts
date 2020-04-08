@@ -24,6 +24,8 @@ export class Controller{
   // and pattern
   private setRoutes(app:any){
     const route_list = this.route.getRoutes();
+    console.log(process.env.ROOT_DIR + '/pub');
+    app.use(express.static('pub'));
     for (const route of route_list){
         app.get(
           this.route.getRoutePattern(route),

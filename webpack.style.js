@@ -1,4 +1,4 @@
-const Versions = require(__dirname + "/versions.js");
+const Versions = require(__dirname + "/easy-config/versions.js");
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
@@ -9,7 +9,7 @@ const path = require('path');const {
 
 module.exports = {
   entry:{
-    "yotsuba-kissu-b": './stylesheets/src/yotsu-kissu-b.scss',
+    "yotsu-kissu-b": './stylesheets/src/yotsu-kissu-b.scss',
     "dark-kissu": './stylesheets/src/dark-kissu.scss',
     "kissu": './stylesheets/src/kissu.scss',
   },

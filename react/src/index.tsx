@@ -5,7 +5,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-import {Hello} from "./components/Hello";
 // A composite of posts
 import {Post} from "./components/main-imageboard-contents/Post";
 // A composite of posts
@@ -14,19 +13,16 @@ import {Thread} from "./components/main-imageboard-contents/Thread";
 import {Page} from "./components/main-imageboard-contents/Page";
 // A composite of pages
 import {Catalog} from "./components/main-imageboard-contents/Catalog";
-// The master thread container 
+// The master thread container
 import {DeleteForm} from "./components/main-imageboard-contents/DeleteForm";
 
-// The master contents container 
+// The master contents container
 import {MainImageboardContents} from "./components/MainImageboardContents";
 
+ReactDOM.hydrate(<MainImageboardContents thread_id={0} board={"b"} paged={true} page={1}/>, document.getElementById("contents"))
 
 // Use library solution to render elements through inline HTML
 module.exports = {
-  renderTest: function (id: string) {
-    console.log('run from library - ' + id);
-	ReactDOM.render(<Hello/>, document.getElementById(id));
-  },
   // the two functions are for the sake of testing purposes only
   renderThread: function(id_num:number, board_str:string){
 	console.log("qtest " + id_num);

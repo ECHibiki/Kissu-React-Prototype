@@ -13,7 +13,7 @@ interface routeDetailsInterface{
 
 const route_settings:routeSettingsInterface =
   {
-      page: {pattern:"/:board",template: generic_page},
+      page: {pattern:"/:board/:page?",template: generic_page},
       thread: {pattern:"/:board/res/:num",template:generic_page},
       catalog: {pattern:"/:board/catalog",template:generic_page},
       archive: {pattern:"/:board/archive",template:generic_page}

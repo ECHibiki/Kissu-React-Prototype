@@ -1,4 +1,4 @@
-const Versions = require(__dirname + "/versions.js");
+const Versions = require(__dirname + "/easy-config/versions.js");
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin')
 
